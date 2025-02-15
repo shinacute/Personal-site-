@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamshina Jaafar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #add8e6; /* Light Blue */
+            text-align: center;
+            display: flex
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            background: #003366; /* Dark Blue */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 600px;
+            text-align: center;
+        }
+        .greeting {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .changing-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+        .italic-text {
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="greeting">Konnichiwa!</p>
+        <img src="profile.jpg" alt="Shamshina Jaafar" class="profile-img">
+        <h1>I'm Shamshina Jaafar</h1>
+        <p class="changing-text" id="changingText">A Tech Enthusiast</p>
+        <h2>About Me</h2>
+        <p>I am a 2nd-year student pursuing an Associate in Computer Technology at Western Mindanao State University, Curuan Campus.</p>
+        <p class="italic-text">As I continue my journey in technology, I am constantly exploring new ways to improve, create, and innovate. Studying Associate in Computer Technology has not only deepened my technical skills but also strengthened my problem-solving and analytical thinking.</p>
+        <p class="italic-text">Through my internship, I am gaining real-world experience in data management and tech operations, applying what I learn in a professional setting. Beyond academics, I enjoy working on digital projects and discovering new technologies that shape the future.</p>
+        <h2>My Interests</h2>
+        <p>Technology, Software Development, and Digital Products.</p>
+        <h2>Contact</h2>
+        <p>Email: shamshinajaafar18@gmail.com</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/18R6buttGB/" target="_blank" style="color: lightblue;">My Facebook Profile</a></p>
+    </div>
+
+    <script>
+        const textArray = ["A Tech Enthusiast", "A Web Developer", "An IT Student", "A Digital Creator"];
+        let index = 0;
+        function changeText() {
+            document.getElementById("changingText").textContent = textArray[index];
+            index = (index + 1) % textArray.length;
+        }
+        setInterval(changeText, 2000);
+    </script>
+
+</body>
+</html>
