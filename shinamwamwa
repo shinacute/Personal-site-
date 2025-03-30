@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamshina Jaafar</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #003366; /* Dark Blue */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Adjusted to start from the top of the page */
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            background: #003366;
+            box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .greeting {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+
+        .changing-text {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .italic-text {
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .message-form {
+            background: #004080;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: left;
+            width: 100%;
+            display: none; /* Hide the form initially */
+        }
+
+        .message-form input,
+        .message-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        .message-form button {
+            padding: 12px 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .message-form button:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px; /* Ensuring footer is at the bottom of content, not fixed */
+        }
+
+        footer a {
+            color: lightblue;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        /* New Style for Send Message Link */
+        .send-message-link {
+            color: lightblue; /* Changed the color to light blue */
+            text-decoration: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container {
+                padding: 15px;
+            }
+
+            .greeting {
+                font-size: 1.2em;
+            }
+
+            .changing-text {
+                font-size: 1.1em;
+            }
+
+            .message-form input,
+            .message-form textarea,
+            .message-form button {
+                font-size: 1em;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .message-form {
+                padding: 15px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 0.9em; /* Reduced font size for smaller screens */
+            }
+
+            footer a {
+                font-size: 1em; /* Adjusted LinkedIn font size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .greeting {
+                font-size: 1em;
+            }
+
+            .changing-text {
+                font-size: 1em;
+            }
+
+            .message-form input,
+            .message-form textarea,
+            .message-form button {
+                font-size: 0.9em;
+            }
+
+            footer {
+                font-size: 0.8em;
+                padding: 10px;
+            }
+
+            footer a {
+                font-size: 0.9em; /* Smaller font size for LinkedIn link */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="greeting">Konnichiwa!</p>
+        <img src="profile.jpg" alt="Shamshina Jaafar" class="profile-img">
+        <h1>I'm Shamshina Jaafar</h1>
+        <p class="changing-text" id="changingText">A Tech Enthusiast</p>
+        <h2>About Me</h2>
+        <p>I am a 2nd-year student pursuing an Associate in Computer Technology at Western Mindanao State University, Curuan Campus.</p>
+        <p class="italic-text">As I continue my journey in technology, I am constantly exploring new ways to improve, create, and innovate. Studying Associate in Computer Technology has not only deepened my technical skills but also strengthened my problem-solving and analytical thinking.</p>
+        <p class="italic-text">Through my internship, I am gaining real-world experience in data management and tech operations, applying what I learn in a professional setting. Beyond academics, I enjoy working on digital projects and discovering new technologies that shape the future.</p>
+        <h2>My Interests</h2>
+        <p>Technology, Software Development, and Digital Products.</p>
+        <h2>Contact</h2>
+        <p>Email: shamshinajaafar18@gmail.com</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/18R6buttGB/" target="_blank" style="color: lightblue;">My Facebook Profile</a></p>
+
+        <!-- Message Link -->
+        <p><a href="javascript:void(0);" class="send-message-link" onclick="toggleMessageForm()">Send Message</a></p>
+
+        <!-- Message Form (Initially Hidden) -->
+        <div class="message-form" id="messageForm">
+            <h3>Send Me a Message</h3>
+            <form id="form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Shamshina Jaafar | <a href="https://www.linkedin.com/in/shamshinajaafar" target="_blank">LinkedIn Profile</a></p>
+    </footer>
+
+    <script>
+        // Text animation for changing content
+        const textArray = ["A Tech Enthusiast", "A Web Developer", "An IT Student", "A Digital Creator"];
+        let index = 0;
+        function changeText() {
+            document.getElementById("changingText").textContent = textArray[index];
+            index = (index + 1) % textArray.length;
+        }
+        setInterval(changeText, 2000);
+
+        // Toggle message form visibility
+        function toggleMessageForm() {
+            const form = document.getElementById('messageForm');
+            form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+        }
+
+        // Message form submission (for demonstration purposes)
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page reload
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            alert("Message sent successfully!\n\nName: " + name + "\nEmail: " + email + "\nMessage: " + message);
+        });
+    </script>
+
+</body>
+</html>
